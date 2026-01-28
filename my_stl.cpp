@@ -9,6 +9,7 @@
 #include<queue>
 #include<deque>
 #include<map>
+#include<unordered_map>
 using namespace std;
 
 
@@ -293,7 +294,136 @@ void priority_queue1_class(){
     }
 }
 
+void map_class(){
+    map<int,int> mp;
+    mp.insert(make_pair(1,2));
+    mp.insert({3,4});
+    mp.insert({5,4});
+    mp.insert({6,4});
+    mp.insert({7,4});
+    mp.insert({8,4});
 
+
+    map<int,int>::iterator it=mp.find(3);
+    
+    cout<<mp.count(3)<<'\n';
+    mp.erase(3);
+    cout<<mp.count(3)<<'\n';
+
+    for(auto it=mp.begin();it!=mp.end();++it){
+        cout<<it->first<<"->"<<it->second<<'\n';
+    }
+
+    for(auto it:mp){
+        cout<<it.first<<"->"<<it.second<<'\n';
+
+    }
+
+}
+
+void multimap_class(){
+    multimap<int,int> mp;
+    mp.insert(make_pair(1,2));
+    mp.insert({1,4});
+    mp.insert({1,4});
+    mp.insert({2,4});
+    mp.insert({2,4});
+    mp.insert({8,4});
+
+
+    multimap<int,int>::iterator it=mp.find(3);
+    
+    cout<<mp.count(3)<<'\n';
+    mp.erase(3);
+    cout<<mp.count(3)<<'\n';
+
+    for(auto it=mp.begin();it!=mp.end();++it){
+        cout<<it->first<<"->"<<it->second<<'\n';
+    }
+    cout<<"---------"<<'\n';
+    for(auto it:mp){
+        cout<<it.first<<"->"<<it.second<<'\n';
+
+    }
+    auto it1=mp.lower_bound(1);
+    auto it2=mp.upper_bound(1);
+    cout<<"---------"<<'\n';
+
+    it1=mp.find(1);
+    cout<<it1->second<<'\n';
+    for(auto it=it1;it!=it2;++it){
+        cout<<it->first<<"->"<<it->second<<'\n';
+    }
+}
+
+void unordered_map_class(){
+    unordered_map<int,int> mp;
+    mp.insert(make_pair(1,2));
+    mp.insert({3,4});
+    mp.insert({5,4});
+    mp.insert({6,4});
+    mp.insert({7,4});
+    mp.insert({8,4});
+
+
+    unordered_map<int,int>::iterator it=mp.find(3);
+    
+    cout<<mp.count(3)<<'\n';
+    mp.erase(3);
+    cout<<mp.count(3)<<'\n';
+
+    for(auto it=mp.begin();it!=mp.end();++it){
+        cout<<it->first<<"->"<<it->second<<'\n';
+    }
+    cout<<"---------"<<'\n';
+
+    for(auto it:mp){
+        cout<<it.first<<"->"<<it.second<<'\n';
+
+    }
+
+}
+
+
+class Student{
+
+    public:
+        int roll;
+        string fname;
+        string lname;
+        Student(string fname,string lname,int roll){
+            this->roll=roll;
+            this->fname=fname;
+            this->lname=lname;
+        }
+        bool operator==(const Student &A) const {
+            return roll==A.roll;
+
+        }
+};
+class HashFn{
+    public:
+        size_t operator()(const Student &a) const {
+            return a.lname.length()+a.fname.length();
+        }
+};
+
+void unordered_map1_class(){
+    unordered_map<Student,int,HashFn> mp;
+
+    mp[Student("Teja","M",10)]=100;
+    mp[Student("Teja","M",10)]=90;
+    mp[Student("Teja","M",10)]=80;
+    mp[Student("Venkat","Mam",13)]=80;
+    mp[Student("Teja","Msdm",14)]=80;
+
+    
+    for (auto m : mp) {
+        cout << m.first.fname << " " << m.first.lname << " " << m.first.roll << " -> " << m.second << '\n';
+    }
+
+
+}
 int main(){
-    priority_queue1_class();
+    unordered_map1_class();
 }
