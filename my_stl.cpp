@@ -10,6 +10,7 @@
 #include<deque>
 #include<map>
 #include<unordered_map>
+#include<set>
 using namespace std;
 
 
@@ -356,6 +357,8 @@ void multimap_class(){
     }
 }
 
+
+
 void unordered_map_class(){
     unordered_map<int,int> mp;
     mp.insert(make_pair(1,2));
@@ -424,6 +427,19 @@ void unordered_map1_class(){
 
 
 }
+
+
+void set_class(){
+    int arr[]={1,2,3,5,1,2,1,3,4};
+
+    int n=sizeof(arr)/sizeof(int);
+    set<int> s;
+    for(int i=0;i<n;++i){
+        s.insert(arr[i]);
+    }
+    print_vec(s);
+}
 int main(){
-    unordered_map1_class();
+    set_class();
+    unordered_multimap<int,int> mp;
 }
