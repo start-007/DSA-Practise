@@ -3,6 +3,7 @@
 #include <typeinfo>
 #include<string>
 #include<cstring>
+#include<vector>
 using namespace std;
 
 
@@ -109,6 +110,45 @@ void string2_class(){
     cout<<ptr<<'\n';
 
 }
+void print_vec(vector<int> vec){
+    for(int i:vec){
+        cout<<i<<' ';
+    }
+    cout<<'\n';
+
+}
+void vector_class(){
+    vector<int> vec(10,15);
+    for(vector<int>::iterator it=vec.begin();it!=vec.end();++it){
+        cout<<(*it)<<' ';
+    }
+    cout<<'\n';
+
+    d.reserve(100); // make capacity =100
+    vector<int> d{1,2,3,4,5,6};
+    d.push_back(10);
+    print_vec(d);
+    d.pop_back();
+    print_vec(d);
+
+    d.insert(d.begin()+3,10);
+    print_vec(d);
+    d.insert(d.begin()+3,4,10);
+    print_vec(d);
+    d.erase(d.begin()+2);
+    print_vec(d);
+
+    d.erase(d.begin()+2,d.begin()+5);
+    print_vec(d);
+    cout<<d.front()<<'\n';
+    cout<<d.back()<<'\n';
+
+    d.clear();
+    cout<<d.empty()<<'\n';
+
+
+}
+
 int main(){
-    string2_class();
+    vector_class();
 }
