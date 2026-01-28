@@ -6,6 +6,8 @@
 #include<vector>
 #include<list>
 #include<stack>
+#include<queue>
+#include<deque>
 using namespace std;
 
 
@@ -192,8 +194,55 @@ void list_class(){
 
 }
 void stack_class(){
-
+    stack<int> st;
+    for(int i=0;i<5;++i){
+        st.push(i);
+    }
+    while(!st.empty()){
+        cout<<"popping "<<st.top()<<'\n';
+        st.pop();
+    }
 }
+
+void queue_class(){
+    queue<int> q;
+    for(int i=0;i<10;++i){
+        q.push(i);
+    }
+    
+    while(!q.empty()){
+        cout<<"removing front: "<<q.front()<<'\n';
+        q.pop();
+    }
+}
+
+void deque_class(){
+    deque<int> q;
+    q.push_back(1);
+    q.push_back(2);
+    q.push_back(3);
+    q.push_back(4);
+    q.push_front(-1);
+    q.push_front(-2);
+    q.push_front(-3);
+
+    cout<<q.front()<<'\n';
+    cout<<q.back()<<'\n';
+
+    q.pop_back();
+    print_vec(q);
+    while(!q.empty()){
+        cout<<"removing front: "<<q.front()<<'\n';
+        q.pop_front();
+    }
+
+    deque<int> d2 = {10, 20, 30, 40};
+    for (int val : d2) {
+        cout << val << " ";
+    }
+    cout << endl;
+}
+
 int main(){
-    stack_class();
+    deque_class();
 }
