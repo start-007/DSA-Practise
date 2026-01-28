@@ -4,6 +4,8 @@
 #include<string>
 #include<cstring>
 #include<vector>
+#include<list>
+#include<stack>
 using namespace std;
 
 
@@ -110,8 +112,10 @@ void string2_class(){
     cout<<ptr<<'\n';
 
 }
-void print_vec(vector<int> vec){
-    for(int i:vec){
+
+template<typename T>
+void print_vec(T vec){
+    for(auto i:vec){
         cout<<i<<' ';
     }
     cout<<'\n';
@@ -124,7 +128,7 @@ void vector_class(){
     }
     cout<<'\n';
 
-    d.reserve(100); // make capacity =100
+    vec.reserve(100); // make capacity =100
     vector<int> d{1,2,3,4,5,6};
     d.push_back(10);
     print_vec(d);
@@ -149,6 +153,47 @@ void vector_class(){
 
 }
 
+void list_class(){
+    list<int> ls{5,2,4,3,1,6};
+    print_vec(ls);
+    ls.sort();
+    print_vec(ls);
+    ls.reverse();
+    print_vec(ls);
+    ls.push_back(10);
+    print_vec(ls);
+    cout<<ls.back()<<'\n';
+    ls.pop_back();      
+    print_vec(ls);
+    cout<<ls.front()<<'\n';
+    ls.pop_front();
+    print_vec(ls);
+    ls.push_front(-1);
+    print_vec(ls);
+    for(list<int>::iterator it=ls.begin();it!=ls.end();++it){
+        cout<<*it<<':';
+    }
+    cout<<'\n';
+    ls.remove(4);
+    print_vec(ls);
+
+    auto it=ls.begin();
+    ++it;
+    ++it;
+    ls.erase(it);
+    print_vec(ls);
+
+    it=ls.begin();
+    ++it;
+    ls.insert(it,10);
+    print_vec(ls);
+
+
+
+}
+void stack_class(){
+
+}
 int main(){
-    vector_class();
+    stack_class();
 }
