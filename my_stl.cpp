@@ -8,6 +8,7 @@
 #include<stack>
 #include<queue>
 #include<deque>
+#include<map>
 using namespace std;
 
 
@@ -243,6 +244,56 @@ void deque_class(){
     cout << endl;
 }
 
+
+void priority_queue_class(){
+    priority_queue<int,vector<int>,greater<int>> q;
+    for(int i=0;i<10;++i){
+        q.push(i);
+    }
+
+    while(!q.empty()){
+        cout<<"front element: "<<q.top()<<'\n';
+        q.pop();
+    }
+    
+}
+
+
+class Person{
+    public:
+        string name;
+        int age;
+        Person(string name,int age){
+            this->name=name;
+            this->age=age;
+        }
+};
+
+class ComparePerson{
+    public:
+        bool operator()(Person A,Person B){
+            return A.age<B.age;
+        }
+
+};
+void priority_queue1_class(){
+    int n;
+    cin>>n;
+    priority_queue<Person,vector<Person>,ComparePerson> q;
+    for(int i=0;i<n;++i){
+        string name;
+        int age;
+        cin>>name;
+        cin>>age;
+        q.push(Person(name,age));
+    }
+    while(!q.empty()){
+        cout<<"front element: "<<q.top().age<<" "<<q.top().name<<'\n';
+        q.pop();
+    }
+}
+
+
 int main(){
-    deque_class();
+    priority_queue1_class();
 }
