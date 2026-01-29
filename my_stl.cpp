@@ -440,6 +440,11 @@ void set_class(){
     print_vec(s);
 }
 int main(){
+    #ifndef ONLINE_JUDGE
+
+        freopen("input.txt","r",stdin);
+        freopen("output.txt","w",stdout);
+    #endif
     set_class();
     unordered_multimap<int,int> mp;
 }
