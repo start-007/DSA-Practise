@@ -6,9 +6,9 @@
 
 inline void redirectIO() {
 #ifndef ONLINE_JUDGE
-    if (!freopen("C:/Users/ASUS/Downloads/cp-course/practise/input.txt", "r", stdin))
+    if (!freopen("D:/practise/dsa/cb-dsa/input.txt", "r", stdin))
         std::cerr << "input.txt open failed\n";
-    if (!freopen("C:/Users/ASUS/Downloads/cp-course/practise/output.txt", "w", stdout))
+    if (!freopen("D:/practise/dsa/cb-dsa/output.txt", "w", stdout))
         std::cerr << "output.txt open failed\n";
 #endif
 }
